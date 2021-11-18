@@ -8,7 +8,6 @@ const ContactItem = ({ contact }) => {
 
   const { id, name, email, phone, type } = contact;
 
-  console.log(typeof contact.type);
   const onDelete = () => {
     deleteContact(id);
     clearCurrent();
@@ -19,13 +18,14 @@ const ContactItem = ({ contact }) => {
       <h3 className='text-primary text-left'>
         {name}{' '}
         <span
-          style={{ float: 'right' }}
+          style={{ float: 'right', textTransform: 'capitalize' }}
           className={
             'badge ' +
             (type === 'professional' ? 'badge-success' : 'badge-primary')
           }
         >
-          {type.charAt(0).toUpperCase() + type.slice(1)}
+          {/* {type.charAt(0).toUpperCase() + type.slice(1)} */}
+          {type}
         </span>
       </h3>
       <ul className='list'>
@@ -58,5 +58,5 @@ const ContactItem = ({ contact }) => {
 ContactItem.propTypes = {
   contact: PropTypes.object.isRequired,
 };
-
+// console.log(typeof contact);
 export default ContactItem;
